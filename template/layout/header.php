@@ -2,67 +2,44 @@
 $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
 $banner = $db->oneRaw("SELECT * FROM images WHERE type = 'banner'")['image'];
 ?>
+
+
 <header id="header">
-    <div class="header-top wrap-content justify-content-center justify-content-md-between">
-        <div class="d-flex">
-            <a href="./">
-                <div class="logo-box">
-                    <img class="header-logo-image" src="assets/images/upload/<?= $logo ?>" alt="logo"
-                        onerror="this.src='assets/images/noimage/noimage.png'">
-                </div>
-            </a>
-            <img class="header-banner-image d-none d-lg-block" src="assets/images/upload/<?= $banner ?>" alt="logo"
-                onerror="this.src='assets/images/noimage/noimage.png'">
+    <div class="header-layout wrap-content">
+        <div class="header-left">
+            <img src="assets/images/upload/<?= $logo ?>" alt="logo">
         </div>
-        <nav class="d-none d-md-block mt-5">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <a class="menu-link <?= $active == 'trang-chu' ? 'active' : '' ?> " href="./">TRANG CHỦ</a>
-                </li>
-                <li class="menu-item ">
-                    <a class="menu-link <?= $active == 'gioi-thieu' ? 'active' : '' ?>" href="gioi-thieu">GIỚI THIỆU</a>
-                </li>
-                <li class="menu-item">
-                    <!-- <a class="menu-link <?= $active == 'san-pham' ? 'active' : '' ?>" href="san-pham">SẢN PHẨM</a> -->
-                    <div class="dropdown">
-                        <a class="dropdown-toggle menu-link <?= $active == 'san-pham' ? 'active' : '' ?>"
-                            href="san-pham" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SẢN PHẨM
-                        </a>
-                        <ul class="dropdown-menu" style="line-height: 1.5;">
-                            <li><a style="font-size: 14px;" class="dropdown-item" href="san-pham">TẤT CẢ SẢN PHẨM</a>
-                            </li>
-                            <?php
-                            $product_type_list = $db->getRaw("SELECT * FROM product_types");
-                            foreach ($product_type_list as $product_type): ?>
-                                <li><a style="font-size: 14px;" class="dropdown-item"
-                                        href="<?= $product_type['slug'] ?>"><?= $product_type['title'] ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
+        <div class="header-right">
+            <div class="header-right-top">
+                <input type="text" name="" class="form-control header-search-input"
+                    placeholder="Tìm kiếm sản phẩm bạn cần">
+                <div class="header-tel-box">
+                    <div class="icon-call">
+                        <img src="assets/images/page/Vector.svg" onerror="this.src='assets/images/noimage/noimage.png'">
                     </div>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link <?= $active == 'tin-tuc' ? 'active' : '' ?>" href="tin-tuc">TIN TỨC</a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link <?= $active == 'khuyen-mai' ? 'active' : '' ?>" href="khuyen-mai">KHUYẾN MÃI</a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link <?= $active == 'video' ? 'active' : '' ?>" href="video">VIDEO</a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link <?= $active == 'lien-he' ? 'active' : '' ?>" href="lien-he">LIÊN HỆ</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header-tel d-none d-lg-flex mt-5">
-            <a class="tel-link"
-                href="tel:<?= $setting_info[2]['setting_value'] ?>"><?= $setting_info[2]['setting_value'] ?></a>
+                    <div class="d-flex flex-column justify-content-evenly ms-2">
+                        <span class="header-hotline-title">Hotline 24/7</span>
+                        <span class="header-hotline-content">(+84) 08 5673 7878</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right-bottom">
+                <nav class="menu-box">
+                    <ul class="menu-list">
+                        <li class="menu-item"><img src="assets/images/page/home-icon.svg"></li>
+                        <li class="menu-item"><a class="menu-link" href="#">GIỚI THIỆU</a></li>
+                        <li class="menu-item"><a class="menu-link mucsanpham" href="#">SẢN PHẨM</a></li>
+                        <li class="menu-item"><a class="menu-link" href="#">DỰ ÁN</a></li>
+                        <li class="menu-item"><a class="menu-link" href="#">CATALOGUE</a></li>
+                        <li class="menu-item"><a class="menu-link" href="#">TIN TỨC</a></li>
+                        <li class="menu-item"><a class="menu-link" href="#">TUYỂN DỤNG</a></li>
+                        <li class="menu-item"><a class="menu-link" href="#">LIÊN HỆ</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </header>
-
-
 
 <!-- menu mobile -->
 <div id="header-mobile" class="d-md-none">
@@ -116,5 +93,4 @@ $banner = $db->oneRaw("SELECT * FROM images WHERE type = 'banner'")['image'];
             </ul>
         </div>
     </div>
-
 </div>

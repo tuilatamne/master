@@ -29,9 +29,10 @@
 <!-- owl -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-<!-- style css -->
-<link rel="stylesheet" href="assets/css/style.css?v=<?= rand(10, 99) ?>">
 
 <!-- animate -->
 <link rel="stylesheet" href="assets/css/animate.css">
 <link rel="stylesheet" href="assets/css/animate.min.css">
+
+<!-- style css -->
+<link rel="stylesheet" href="assets/css/style.css?v=<?= rand(10, 99) ?>">

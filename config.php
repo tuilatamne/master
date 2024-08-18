@@ -1,6 +1,6 @@
 <?php
 // Tên thư mục khi chạy dưới localhost
-define('URL', 'biatuoi');
+define('URL', 'master');
 
 // Ngôn ngữ
 define('LANG', 'vi');
@@ -38,7 +38,7 @@ class DatabaseConfig
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $database = "biatuoi";
+    private $database = "master";
 
     public function getConnection()
     {
