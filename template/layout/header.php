@@ -26,7 +26,7 @@ $banner = $db->oneRaw("SELECT * FROM images WHERE type = 'banner'")['image'];
             <div class="header-right-bottom">
                 <nav class="menu-box">
                     <ul class="menu-list">
-                        <li class="menu-item"><img src="assets/images/page/home-icon.svg"></li>
+                        <li class="menu-item"><a href="#"><img src="assets/images/page/home-icon.svg"></a></li>
                         <li class="menu-item"><a class="menu-link" href="#">GIỚI THIỆU</a></li>
                         <li class="menu-item"><a class="menu-link mucsanpham" href="#">SẢN PHẨM</a></li>
                         <li class="menu-item"><a class="menu-link" href="#">DỰ ÁN</a></li>

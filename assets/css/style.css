@@ -143,6 +143,7 @@ button {
   border: 0;
 }
 body {
+  max-width: 1920px;
   min-height: 100vh;
   font-weight: 400;
   font-size: 16px;
@@ -165,7 +166,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 14px 20px;
+  padding: 14px 50px;
 }
 .header-tel-box {
   display: flex;
@@ -197,14 +198,19 @@ body {
 }
 .menu-box {
   border-top-left-radius: 200px;
-  position: relative;
   padding: 23px 0 26px 40px;
   background-image: linear-gradient(to bottom, #00a651, #017439);
+  position: relative;
 }
-.menu-box::after {
+.menu-box::before {
   content: "";
-  top: 0;
+  width: 50%;
+  height: 100%;
+  position: absolute;
   bottom: 0;
+  top: 0;
+  right: -400px;
+  z-index: -1;
   background-image: linear-gradient(to bottom, #00a651, #017439);
 }
 .menu-list {
