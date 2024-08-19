@@ -35,13 +35,13 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="?com=product_type&act=list"
                                 class="nav-link <?= $com == 'product_type' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Danh mục cấp 1</p>
                             </a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a href="?com=product&act=list" class="nav-link <?= $com == 'product' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
