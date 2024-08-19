@@ -1,5 +1,4 @@
 <div class="google-map pb-5 pb-md-0">
-    <?= //$setting_info[8]['setting_value'] ?>
 </div>
 <div class="d-md-none position-fixed bottom-0 start-0 end-0">
     <div class="p-2">

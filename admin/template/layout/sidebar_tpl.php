@@ -139,6 +139,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="?com=static&act=update&type=gioi-thieu-index-bottom"
+                                class="nav-link <?= $_GET['type'] == 'gioi-thieu-index-bottom' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Giới thiệu bottom</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?com=static&act=update&type=gioi-thieu"
                                 class="nav-link <?= $_GET['type'] == 'gioi-thieu' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>

@@ -1,18 +1,24 @@
 <?php
 $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
-$banner = $db->oneRaw("SELECT * FROM images WHERE type = 'banner'")['image'];
 ?>
 
 
 <header id="header">
     <div class="header-layout wrap-content">
         <div class="header-left">
-            <img src="assets/images/upload/<?= $logo ?>" alt="logo">
+            <img style="width: 277px; height: 76px;" src="assets/images/upload/<?= $logo ?>" alt="logo">
         </div>
         <div class="header-right">
             <div class="header-right-top">
-                <input type="text" name="" class="form-control header-search-input"
-                    placeholder="Tìm kiếm sản phẩm bạn cần">
+                <!-- <input type="text" name="" class="form-control header-search-input"
+                    placeholder="Tìm kiếm sản phẩm bạn cần"> -->
+                <div class="search-container">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm bạn cần">
+                    <button>
+                        <img src="assets/images/page/icon-search.svg" class="me-1">
+                        <span style="padding-top: 2px;">Search</span>
+                    </button>
+                </div>
                 <div class="header-tel-box">
                     <div class="icon-call">
                         <img src="assets/images/page/Vector.svg" onerror="this.src='assets/images/noimage/noimage.png'">
