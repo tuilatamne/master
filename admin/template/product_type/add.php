@@ -10,6 +10,11 @@ if ($func->isPOST())
         'seo_keywords' => $filterAll['seo_keywords'],
         'seo_desc' => $filterAll['seo_description']
     ];
+    $image = $func->upload('imageUpload', 'upload');
+    if ($image != 'noimage.jpg')
+    {
+        $data_insert['image'] = $image;
+    }
     $db->insert('product_types', $data_insert);
     setFlashData('smg', 'Thêm mục thành công');
 }
@@ -52,12 +57,30 @@ $smg = getFlashData('smg');
                 $func->getSmg($smg);
             }
             ?>
-            <form method="post">
-
+            <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-primary card-outline mb-4">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Hình ảnh danh mục
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <input type="file" class="form-control" name="imageUpload" id="imageUpload"
+                                    accept="image/*">
+                                <img id="previewImage" src="" onerror="this.src='../assets/images/noimage/noimage.png'"
+                                    alt="Ảnh xem trước"
+                                    style="width: 100%; height: 200px; margin-top: 20px; object-fit: contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card card-primary card-outline mb-4">
                     <!--begin::Header-->
                     <div class="card-header">
-                        <div class="card-title">Nội dung danh mục cấp 1 <span class="text-danger text-sm">(vui lòng
+                        <div class="card-title">Nội dung danh mục cấp 1 <span class="text-danger text-sm">(vui
+                                lòng
                                 không nhập trùng tiêu đề)</span></div>
                     </div>
                     <!--end::Header-->

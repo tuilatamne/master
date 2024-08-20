@@ -4,6 +4,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
 
 <script>
+
+    $('.slide-duan').slick({
+        centerMode: true,
+        centerPadding: '100px',
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+</script>
+<script>
     $('.tieuchi-list').slick({
         autoplay: true,  // Tự động chạy
         autoplaySpeed: 2000, // Chạy mỗi 2 giây

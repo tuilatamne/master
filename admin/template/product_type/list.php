@@ -52,6 +52,7 @@ $smg = getFlashData('smg');
                         <thead>
                             <tr>
                                 <th width="5%">STT</th>
+                                <th width="10%">Hình ảnh</th>
                                 <th>Tiêu đề</th>
                                 <th width="10%" class="text-center">Thao tác</th>
                             </tr>
@@ -63,6 +64,10 @@ $smg = getFlashData('smg');
                                 ?>
                                 <tr>
                                     <td><?= $dem++ ?></td>
+                                    <td>
+                                        <img style="height: 50px;" onerror="this.src='../assets/images/noimage/noimage.png'"
+                                            src="../assets/images/upload/<?= $item['image'] ?>">
+                                    </td>
                                     <td>
                                         <a href="?com=product_type&act=edit&id=<?= $item['id'] ?>"
                                             class="text-decoration-none text-black">

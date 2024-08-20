@@ -11,6 +11,11 @@ if ($func->isPOST())
         'seo_keywords' => $filterAll['seo_keywords'],
         'seo_desc' => $filterAll['seo_description']
     ];
+    $image = $func->upload('imageUpload', 'upload');
+    if ($image != 'noimage.jpg')
+    {
+        $data_update['image'] = $image;
+    }
     $db->update('product_types', $data_update, "id='$id'");
     setFlashData('smg', 'Chỉnh sửa thành công');
 }
@@ -55,8 +60,25 @@ $smg = getFlashData('smg');
                 $func->getSmg($smg);
             }
             ?>
-            <form method="post">
-
+            <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-primary card-outline mb-4">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Hình ảnh danh mục
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <input type="file" class="form-control" name="imageUpload" id="imageUpload"
+                                    accept="image/*">
+                                <img id="previewImage" src="../assets/images/upload/<?= $cap1['image'] ?>"
+                                    onerror="this.src='../assets/images/noimage/noimage.png'" alt="Ảnh xem trước"
+                                    style="width: 100%; height: 200px; margin-top: 20px; object-fit: contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card card-primary card-outline mb-4">
                     <!--begin::Header-->
                     <div class="card-header">

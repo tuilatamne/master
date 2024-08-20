@@ -120,7 +120,7 @@ $smg = getFlashData('smg');
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <!-- <div class="card card-primary card-outline mb-4">
+                        <div class="card card-primary card-outline mb-4">
                             <div class="card-header">
                                 <div class="card-title">
                                     Danh mục sản phẩm
@@ -138,7 +138,7 @@ $smg = getFlashData('smg');
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="card card-primary card-outline mb-4">
                             <div class="card-header">
                                 <div class="card-title">

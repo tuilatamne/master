@@ -81,6 +81,13 @@
                                 <p>Chính sách</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="?com=new&act=list&type=du-an-tieu-bieu"
+                                class="nav-link <?= $_GET['type'] == 'du-an-tieu-bieu' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Dự án tiêu biểu</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item <?= $com == 'static' || $com == 'tieuchi' ? 'menu-open' : '' ?>">
