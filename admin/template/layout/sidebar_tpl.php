@@ -236,6 +236,13 @@
                                         <p>Đối tác</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="?com=photo&act=man_photo&type=quang-cao"
+                                        class="nav-link <?= $_GET['type'] == 'quang-cao' ? 'active' : '' ?>">
+                                        <i class="nav-icon bi bi-circle"></i>
+                                        <p>Quảng cáo</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">

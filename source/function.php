@@ -154,4 +154,20 @@ class func
         preg_match($pattern, $url, $matches);
         return isset($matches[1]) ? $matches[1] : null;
     }
+    public function formatPhoneNumber($phoneNumber)
+    {
+        // Xóa bỏ tất cả ký tự không phải số
+        $cleaned = preg_replace('/[^0-9]/', '', $phoneNumber);
+
+        // Kiểm tra độ dài của số điện thoại
+        if (strlen($cleaned) != 10)
+        {
+            return "Invalid phone number";
+        }
+
+        // Định dạng số điện thoại thành định dạng mong muốn
+        $formatted = substr($cleaned, 0, 2) . ' ' . substr($cleaned, 2, 4) . ' ' . substr($cleaned, 6, 4);
+
+        return $formatted;
+    }
 }

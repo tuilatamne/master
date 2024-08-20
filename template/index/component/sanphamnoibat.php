@@ -16,10 +16,19 @@ $danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE slug = 'bon-cau'
                 $id = $danhmuc['id'];
                 $sanphamnoibat = $db->getRaw("SELECT * FROM products WHERE product_type_id = '$id'");
                 foreach ($sanphamnoibat as $sanpham): ?>
-                    <div class="sanpham-item">
-                        <div class="sanpham-item-image-box">
-                            <img src="assets/images/upload/<?= $sanpham['image'] ?>" alt="<?= $sanpham['title'] ?>">
-                        </div>
+                    <div class="sanpham-box">
+                        <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
+                            <div class="sanpham-item">
+                                <div class="sanpham-item-image-box sanpham-sale">
+                                    <img src="assets/images/upload/<?= $sanpham['image'] ?>" alt="<?= $sanpham['title'] ?>">
+                                </div>
+                                <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="giagoc"><?= $sanpham['price'] ?></span>
+                                    <span class="discount"><?= $sanpham['discount'] ?></span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>

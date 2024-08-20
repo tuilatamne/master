@@ -23,7 +23,8 @@ $gioithieu_image = $db->oneRaw("SELECT * FROM images WHERE type = 'gioi-thieu'")
                     </div>
                     <div class="d-flex flex-column justify-content-evenly ms-2">
                         <span class="header-hotline-title fst-italic">Hotline 24/7</span>
-                        <span class="header-hotline-content">08 5673 7878</span>
+                        <span
+                            class="header-hotline-content"><?= $f->formatPhoneNumber($setting_info[2]['setting_value']) ?></span>
                     </div>
                 </div>
             </div>

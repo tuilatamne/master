@@ -8,6 +8,15 @@ switch ($url)
     case 'khuyen-mai':
         $vietsub = 'Khuyến mãi';
         break;
+    case 'tuyen-dung':
+        $vietsub = 'Tuyển dụng';
+        break;
+    case 'catalogue':
+        $vietsub = 'CATALOGUE';
+        break;
+    case 'du-an':
+        $vietsub = 'Dự án';
+        break;
 }
 $title = $vietsub;
 $active = $url;

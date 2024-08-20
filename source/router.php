@@ -43,6 +43,18 @@ switch ($url)
         require_once TEMPLATE . 'new/new_list_tpl.php';
         $noidung = ob_get_clean();
         break;
+    case 'tuyen-dung':
+        require_once TEMPLATE . 'new/new_list_tpl.php';
+        $noidung = ob_get_clean();
+        break;
+    case 'catalogue':
+        require_once TEMPLATE . 'new/new_list_tpl.php';
+        $noidung = ob_get_clean();
+        break;
+    case 'du-an':
+        require_once TEMPLATE . 'new/new_list_tpl.php';
+        $noidung = ob_get_clean();
+        break;
     case 'khuyen-mai':
         require_once TEMPLATE . 'new/new_list_tpl.php';
         $noidung = ob_get_clean();

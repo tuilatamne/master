@@ -241,6 +241,12 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
+.menu-link:hover {
+  color: yellow;
+}
+.menu-link.active {
+  color: yellow !important;
+}
 .search-container {
   display: flex;
   align-items: center;
@@ -481,20 +487,55 @@ body {
   margin-bottom: 0;
 }
 .sanpham-list {
-  padding: 45px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 45px 0 !important;
 }
 .sanpham-item {
   display: flex;
   flex-direction: column;
+  padding: 5px 15px;
+}
+.sanpham-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sanpham-item-image-box {
   /* padding: 9px; */
   border: 1px solid #d9d9d9;
   border-radius: 7px;
 }
+.sanpham-sale {
+  position: relative;
+}
+.sanpham-sale::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -15px;
+  width: 57px;
+  height: 35px;
+  background-image: url(../images/page/icon-sanpham-sale.svg);
+}
+.sanpham-item-title {
+  margin-top: 16px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.giagoc {
+  font-weight: 600;
+  color: #979797;
+  font-style: italic;
+  text-decoration: line-through;
+}
+.discount {
+  font-size: 20px;
+  color: #ed1c24;
+  font-weight: 700;
+  margin-left: 10px;
+}
+/* Dự án tiêu biểu */
 .duantieubieu-component {
   padding: 48px 0;
 }
@@ -527,4 +568,128 @@ body {
   color: #878787;
   text-align: center;
   width: 50%;
+}
+/* Tin tức */
+.tintuc-component {
+  padding-top: 40px;
+}
+.tintuc-item-row {
+  margin-bottom: 28px;
+}
+.tintuc-item-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+.tintuc-item-desc {
+  font-weight: 500;
+  color: #898989;
+  font-size: 14px;
+}
+.tintuc-item-date {
+  font-weight: 700;
+  font-size: 14px;
+  color: #00a651;
+  padding-top: 2px;
+  margin-left: 7px;
+}
+/* Đăng ký nhận tin */
+.dangkynhantin-component {
+  padding: 33px 0;
+  background-image: linear-gradient(to bottom, #00a651, #129047);
+}
+.text-delaithongtin {
+  font-weight: 700;
+  color: #fff;
+  font-size: 24px;
+  padding-top: 10px;
+  margin-left: 10px;
+}
+.input-dangkynhantin {
+  font-size: 16px;
+  font-weight: 500;
+  color: #8f8f8f;
+  padding: 21px 27px;
+}
+.icon-send {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+}
+.footer-component {
+  background-image: url(../images/page/bg-footer.png);
+  padding-top: 40px;
+}
+.footer-content {
+  padding: 40px 0;
+}
+.footer-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  margin-bottom: 75px;
+}
+.footer-title::after {
+  content: "";
+  position: absolute;
+  width: 112px;
+  height: 3px;
+  bottom: -30px;
+  left: 0;
+  background-image: linear-gradient(to right, #00a651, #00a65000);
+}
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.item-footer-span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.cirle-icon-footer {
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+/* footer chính sách */
+.chinhsach-list {
+  list-style: none;
+  padding: 0;
+}
+.chinhsach-item {
+  margin-bottom: 15px;
+}
+.chinhsach-item a {
+  text-decoration: none;
+  color: #fff;
+  font-style: 14px;
+  font-weight: 500;
+}
+.chinhsach-item a:hover {
+  color: yellow;
+}
+.copyright {
+  padding: 18px 0;
+  background-image: linear-gradient(to bottom, #00a651, #036131);
+}
+.copyright p {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+.google-map iframe {
+  width: 100%;
 }

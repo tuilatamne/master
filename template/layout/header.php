@@ -6,7 +6,9 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
 <header id="header">
     <div class="header-layout wrap-content">
         <div class="header-left">
-            <img style="width: 277px; height: 76px;" src="assets/images/upload/<?= $logo ?>" alt="logo">
+            <a href="./">
+                <img style="width: 277px; height: 76px;" src="assets/images/upload/<?= $logo ?>" alt="logo">
+            </a>
         </div>
         <div class="header-right">
             <div class="header-right-top">
@@ -25,21 +27,29 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
                     </div>
                     <div class="d-flex flex-column justify-content-evenly ms-2">
                         <span class="header-hotline-title">Hotline 24/7</span>
-                        <span class="header-hotline-content">(+84) 08 5673 7878</span>
+                        <span class="header-hotline-content">(+84)
+                            <?= $f->formatPhoneNumber($setting_info[2]['setting_value']) ?></span>
                     </div>
                 </div>
             </div>
             <div class="header-right-bottom">
                 <nav class="menu-box">
                     <ul class="menu-list">
-                        <li class="menu-item"><a href="#"><img src="assets/images/page/home-icon.svg"></a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">GIỚI THIỆU</a></li>
-                        <li class="menu-item"><a class="menu-link mucsanpham" href="#">SẢN PHẨM</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">DỰ ÁN</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">CATALOGUE</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">TIN TỨC</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">TUYỂN DỤNG</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">LIÊN HỆ</a></li>
+                        <li class="menu-item"><a href="./"><img src="assets/images/page/home-icon.svg"></a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'gioi-thieu' ? 'active' : '' ?>"
+                                href="gioi-thieu">GIỚI THIỆU</a></li>
+                        <li class="menu-item"><a class="menu-link mucsanpham <?= $url == 'san-pham' ? 'active' : '' ?>"
+                                href="san-pham">SẢN PHẨM</a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'du-an' ? 'active' : '' ?>"
+                                href="du-an">DỰ ÁN</a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'catalogue' ? 'active' : '' ?>"
+                                href="catalogue">CATALOGUE</a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'tin-tuc' ? 'active' : '' ?>"
+                                href="tin-tuc">TIN TỨC</a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'tuyen-dung' ? 'active' : '' ?>"
+                                href="tuyen-dung">TUYỂN DỤNG</a></li>
+                        <li class="menu-item"><a class="menu-link <?= $url == 'lien-he' ? 'active' : '' ?>"
+                                href="lien-he">LIÊN HỆ</a></li>
                     </ul>
                 </nav>
             </div>

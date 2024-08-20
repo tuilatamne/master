@@ -7,6 +7,7 @@ if ($func->isPOST())
         'slug' => $filterAll['slug'],
         'title' => $filterAll['title'],
         'price' => $filterAll['price'],
+        'discount' => $filterAll['discount'],
         'description' => $filterAll['description'],
         'content' => $_POST['content'],
         'seo_title' => $filterAll['seo_title'],
@@ -85,12 +86,16 @@ $smg = getFlashData('smg');
                                         <input id="slugInput" type="text" name="slug" class="form-control" required>
                                     </div>
                                     <div class="mb-3 col-12">
-                                        <label for="company_name" class="form-label fw-bold">Tiêu đề:</label>
+                                        <label for="title" class="form-label fw-bold">Tiêu đề:</label>
                                         <input id="title" type="text" name="title" class="form-control" required>
                                     </div>
                                     <div class="mb-3 col-12">
-                                        <label for="company_name" class="form-label fw-bold">Giá bán</label>
+                                        <label for="price" class="form-label fw-bold">Giá bán</label>
                                         <input type="text" name="price" class="form-control">
+                                    </div>
+                                    <div class="mb-3 col-12">
+                                        <label for="discount" class="form-label fw-bold">Giá giảm</label>
+                                        <input type="text" name="discount" class="form-control">
                                     </div>
                                 </div>
                             </div>
