@@ -13,9 +13,15 @@ $danhmuc_list = $db->getRaw("SELECT * FROM product_types");
             <?php foreach ($danhmuc_list as $danhmuc): ?>
                 <div class="col-lg-2 col-md-3 col-4 danhmuc-item">
                     <div class="danhmuc-box-image">
-                        <img src="assets/images/upload/<?= $danhmuc['image'] ?>" alt="<?= $danhmuc['title'] ?>">
+                        <a class="d-flex align-items-center justify-content-center h-100 w-100"
+                            href="<?= $danhmuc['slug'] ?>">
+                            <img class="danhmuc-image" src="assets/images/upload/<?= $danhmuc['image'] ?>"
+                                alt="<?= $danhmuc['title'] ?>">
+                        </a>
                     </div>
-                    <span class="danhmuc-item-title"><?= $danhmuc['title'] ?></span>
+                    <a style="padding-top: 20px;" class="text-decoration-none" href="<?= $danhmuc['slug'] ?>">
+                        <span class="danhmuc-item-title"><?= $danhmuc['title'] ?></span>
+                    </a>
                 </div>
             <?php endforeach; ?>
         </div>

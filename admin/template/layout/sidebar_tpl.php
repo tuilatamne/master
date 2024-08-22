@@ -209,13 +209,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="?com=photo&act=photo_static&type=banner"
-                                        class="nav-link <?= $_GET['type'] == 'banner' ? 'active' : '' ?>">
-                                        <i class="nav-icon bi bi-circle"></i>
-                                        <p>Banner</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="?com=photo&act=photo_static&type=gioi-thieu"
                                         class="nav-link <?= $_GET['type'] == 'gioi-thieu' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-circle"></i>
@@ -250,6 +243,24 @@
                                 class="nav-link <?= $_GET['type'] == 'video' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Video</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item <?= $com == 'photo' || $com == 'video' ? 'menu-open' : '' ?>">
+                    <a href="#" class="nav-link <?= $com == 'file' ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-images"></i>
+                        <p>
+                            Quản lý file
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="?com=photo&act=man_photo&type=video"
+                                class="nav-link <?= $_GET['type'] == 'video' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Catologue</p>
                             </a>
                         </li>
                     </ul>

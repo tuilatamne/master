@@ -10,7 +10,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
             <span>TIN TỨC & VIDEO LIÊN QUAN</span>
             <img src="assets/images/page/danhmucright.svg">
         </div>
-        <div class="row" style="padding: 54px 0;">
+        <div class="row tintuc-component-content">
             <div class="col-md-6">
                 <?php foreach ($tintuc_list as $index => $tintuc): ?>
                     <div class="row tintuc-item-row">
@@ -18,7 +18,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
                             <div class="col-5">
                                 <img src="assets/images/upload/<?= $tintuc['image'] ?>" alt="<?= $tintuc['title'] ?>">
                             </div>
-                            <div class="col-7 py-2">
+                            <div class="col-7 py-md-2">
                                 <p class="tintuc-item-title"><?= $tintuc['title'] ?></p>
                                 <p class="tintuc-item-desc"><?= $tintuc['description'] ?></p>
                                 <div class="d-flex">
@@ -27,7 +27,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
                                 </div>
                             </div>
                         <?php else: ?>
-                            <div class="col-7 py-2">
+                            <div class="col-7 py-md-2">
                                 <p class="tintuc-item-title"><?= $tintuc['title'] ?></p>
                                 <p class="tintuc-item-desc"><?= $tintuc['description'] ?></p>
                                 <div class="d-flex">
@@ -45,7 +45,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
             <div class="col-md-6">
                 <?php
                 foreach ($list_video as $video): ?>
-                    <iframe class="w-100 h-100"
+                    <iframe class="w-100 youtube"
                         src="https://www.youtube.com/embed/<?= $f->getYouTubeVideoId($video['link']) ?>" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>

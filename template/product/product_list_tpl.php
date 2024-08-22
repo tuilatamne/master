@@ -1,6 +1,13 @@
 <?php
 $active = 'san-pham';
-$list_sanpham = $db->getRaw('SELECT * FROM products');
+if (!empty($type_id))
+{
+    $sql = "SELECT * FROM products WHERE product_type_id = '$type_id'";
+} else
+{
+    $sql = 'SELECT * FROM products';
+}
+$list_sanpham = $db->getRaw($sql);
 if (empty($list_sanpham))
 {
     setFlashData('smg', 'Nội dung đang được cập nhật');

@@ -12,11 +12,11 @@ $gioithieu_image = $db->oneRaw("SELECT * FROM images WHERE type = 'gioi-thieu'")
             <div class="gioithieu-desc"><?= $gioithieu_desc ?></div>
             <div class="gioithieu-desc-bottom"><?= $gioithieu_desc_bottom ?></div>
             <div class="d-flex">
-                <a href="#" class=" btn-timhieuthem">
+                <a href="#" class="btn-timhieuthem">
                     <span>TÌM HIỂU THÊM</span>
                     <img src="assets/images/page/arow.svg">
                 </a>
-                <div class="header-tel-box ms-5">
+                <div class="header-tel-box ms-2 ms-md-5">
                     <div class="icon-phone">
                         <img src="assets/images/page/icon-phone.svg"
                             onerror="this.src='assets/images/noimage/noimage.png'">

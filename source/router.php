@@ -89,6 +89,7 @@ switch ($url)
         if (!empty($product_type))
         {
             $title = $product_type['title'];
+            $type_id = $product_type['id'];
             require_once TEMPLATE . 'product/product_list_tpl.php';
             $noidung = ob_get_clean();
             break;

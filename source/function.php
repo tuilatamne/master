@@ -170,4 +170,8 @@ class func
 
         return $formatted;
     }
+    public function uploadfile()
+    {
+
+    }
 }

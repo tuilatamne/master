@@ -2,3 +2,18 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [L]
+
+
+# Cho phép xem file PDF
+AddType application/pdf .pdf
+
+# Cho phép xem hình ảnh trực tiếp
+AddType image/jpeg .jpg
+AddType image/png .png
+AddType image/gif .gif
+
+# Cho phép xem file văn bản
+AddType text/plain .txt
+
+# Cho phép xem file HTML
+AddType text/html .html

@@ -2,8 +2,8 @@
     <div class="dangkynhantin-component">
         <div class="wrap-content row align-items-center">
             <div class="col-md-6">
-                <div class="d-flex">
-                    <img src="assets/images/page/icon-email.svg">
+                <div class="d-flex align-items-center mb-2 mb-md-0">
+                    <img class="img-nhantin" src="assets/images/page/icon-email.svg">
                     <span class="text-delaithongtin">ĐỂ LẠI THÔNG TIN ĐỂ NHẬN TƯ VẤN</span>
                 </div>
             </div>

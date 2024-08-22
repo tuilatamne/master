@@ -4,7 +4,7 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
 
 
 <header id="header">
-    <div class="header-layout wrap-content">
+    <div class="header-layout wrap-content flex-column flex-md-row">
         <div class="header-left">
             <a href="./">
                 <img style="width: 277px; height: 76px;" src="assets/images/upload/<?= $logo ?>" alt="logo">
@@ -12,8 +12,6 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
         </div>
         <div class="header-right">
             <div class="header-right-top">
-                <!-- <input type="text" name="" class="form-control header-search-input"
-                    placeholder="Tìm kiếm sản phẩm bạn cần"> -->
                 <div class="search-container">
                     <input type="text" placeholder="Tìm kiếm sản phẩm bạn cần">
                     <button>
@@ -21,7 +19,7 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
                         <span style="padding-top: 2px;">Search</span>
                     </button>
                 </div>
-                <div class="header-tel-box">
+                <div class="header-tel-box d-none d-md-flex">
                     <div class="icon-call">
                         <img src="assets/images/page/Vector.svg" onerror="this.src='assets/images/noimage/noimage.png'">
                     </div>
@@ -32,7 +30,7 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
                     </div>
                 </div>
             </div>
-            <div class="header-right-bottom">
+            <div class="header-right-bottom d-none d-md-block">
                 <nav class="menu-box">
                     <ul class="menu-list">
                         <li class="menu-item"><a href="./"><img src="assets/images/page/home-icon.svg"></a></li>
@@ -64,47 +62,37 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
         <i class="fa-solid fa-bars text-white fs-2 pt-1"></i>
     </button>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start custom-theme-mobile" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Danh mục</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title text-white fw-bold" id="offcanvasExampleLabel">Danh mục</h5>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="menu-mobile">
                 <li>
-                    <a href="./">TRANG CHỦ</a>
+                    <a <?= $url == '' ? 'class="yellow"' : '' ?> href="./">TRANG CHỦ</a>
                 </li>
                 <li>
-                    <a href="gioi-thieu">GIỚI THIỆU</a>
-                </li>
-                <!-- <li>
-                    <a href="san-pham">SẢN PHẨM</a>
-                </li> -->
-                <li>
-                    <a data-bs-toggle="collapse" href="#menusanpham" role="button" aria-expanded="false"
-                        aria-controls="menusanpham">
-                        SẢN PHẨM
-                    </a>
-                    <div class="collapse" id="menusanpham">
-                        <ul class="menu-mobile">
-                            <li><a href="san-pham">+ TẤT CẢ SẢN PHẨM</a></li>
-                            <?php foreach ($product_type_list as $product_type): ?>
-                                <li><a href="<?= $product_type['slug'] ?>">+ <?= $product_type['title'] ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <a <?= $url == 'gioi-thieu' ? 'class="yellow"' : '' ?> href="gioi-thieu">GIỚI THIỆU</a>
                 </li>
                 <li>
-                    <a href="tin-tuc">TIN TỨC</a>
+                    <a <?= $url == 'san-pham' ? 'class="yellow"' : '' ?> href="san-pham">SẢN PHẨM</a>
                 </li>
                 <li>
-                    <a href="khuyen-mai">KHUYẾN MÃI</a>
+                    <a <?= $url == 'du-an' ? 'class="yellow"' : '' ?> href="du-an">DỰ ÁN</a>
                 </li>
                 <li>
-                    <a href="video">VIDEO</a>
+                    <a <?= $url == 'catalogue' ? 'class="yellow"' : '' ?> href="catalogue">CATALOGUE</a>
                 </li>
                 <li>
-                    <a href="lien-he">LIÊN HỆ</a>
+                    <a <?= $url == 'tin-tuc' ? 'class="yellow"' : '' ?> href="tin-tuc">TIN TỨC</a>
+                </li>
+                <li>
+                    <a <?= $url == 'tuyen-dung' ? 'class="yellow"' : '' ?> href="tuyen-dung">TUYỂN DỤNG</a>
+                </li>
+                <li>
+                    <a <?= $url == 'lien-he' ? 'class="yellow"' : '' ?> href="lien-he">LIÊN HỆ</a>
                 </li>
             </ul>
         </div>

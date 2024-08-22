@@ -186,6 +186,10 @@ body {
   border: 1px solid var(--cicle-color);
   border-radius: 50%;
 }
+.icon-call img {
+  width: 20px;
+  height: 20px;
+}
 .header-hotline-title {
   color: #929292;
   font-size: 14px;
@@ -198,7 +202,7 @@ body {
 }
 .menu-box {
   border-top-left-radius: 200px;
-  padding: 23px 0 26px 40px;
+  padding: 18px 0 21px 40px;
   background-image: linear-gradient(to bottom, #00a651, #017439);
   position: relative;
 }
@@ -252,7 +256,7 @@ body {
   align-items: center;
   background-color: #f4f4f4;
   border-radius: 50px;
-  padding: 10px 12px 10px 25px;
+  padding: 5px 7px 5px 20px;
   width: 500px;
 }
 
@@ -343,7 +347,7 @@ body {
   position: absolute;
   width: 80px;
   height: 2px;
-  left: 20%;
+  left: 120px;
   top: 50%;
   transform: translateY(-50%);
   background-image: linear-gradient(to right, #00a651, #00a65000);
@@ -459,13 +463,10 @@ body {
   padding: 15px;
   width: 89px;
   height: 89px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
   background-color: #f9f9f9;
 }
-.danhmuc-box-image img {
+.danhmuc-image {
   height: 100%;
   object-fit: contain;
 }
@@ -473,7 +474,6 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #333333;
-  padding-top: 20px;
 }
 .sanphamnoibat-component {
   padding-top: 20px;
@@ -485,6 +485,8 @@ body {
   font-weight: 600;
   text-align: center;
   margin-bottom: 0;
+  margin: 0 auto;
+  width: 75%;
 }
 .sanpham-list {
   padding: 45px 0 !important;
@@ -536,38 +538,42 @@ body {
   margin-left: 10px;
 }
 /* Dự án tiêu biểu */
-.duantieubieu-component {
-  padding: 48px 0;
+.duan-item-box {
+  padding: 0 10px;
 }
-.slide-duan {
-  padding-top: 50px;
+.duan-item-component {
+  position: relative;
 }
-.slide-duan-info {
-  padding-top: 37px;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-}
-.slider-duan-info-date {
-  padding-top: 6px;
-  margin-left: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  color: #6d6d6d;
-  font-style: italic;
-}
-.slide-duan-info-title {
-  margin-top: 18px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #333333;
-}
-.slide-duan-info-desc {
+.duan-item-link {
+  text-decoration: none;
+  color: #fff;
   font-weight: 500;
-  font-size: 16px;
-  color: #878787;
-  text-align: center;
-  width: 50%;
+}
+.duan-item-link:hover {
+  color: yellow;
+}
+.duan-item-image {
+  width: 100%;
+  height: 300px;
+}
+.duan-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: absolute;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.duan-item-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+.duan-item-date {
+  color: #fff;
+  font-weight: 500;
 }
 /* Tin tức */
 .tintuc-component {
@@ -692,4 +698,105 @@ body {
 }
 .google-map iframe {
   width: 100%;
+}
+#header-mobile {
+  background-image: linear-gradient(to bottom, #00a651, #017439);
+}
+.tintuc-component-content {
+  padding: 54px 0;
+}
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+  }
+  .header-right-top {
+    padding: 14px 10px;
+  }
+  .gioithieu-company_name {
+    width: 100%;
+  }
+  .btn-timhieuthem {
+    width: 165px;
+    padding: 0 15px;
+  }
+  .title-component span {
+    font-size: 18px;
+    padding: 0 10px;
+    padding-top: 4px;
+  }
+  .title-component img {
+    width: 50px;
+    height: 4px;
+  }
+  .tintuc-item-title {
+    font-size: 15px;
+  }
+  .tintuc-item-desc {
+    font-size: 12px;
+  }
+  .tintuc-item-date {
+    font-size: 12px;
+  }
+  .text-delaithongtin {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+  .img-nhantin {
+    width: 20px;
+    height: 20px;
+  }
+  .input-dangkynhantin {
+    padding: 10px 20px;
+  }
+  .footer-component {
+    padding: 40px 20px;
+  }
+  /* .tintuc-component {
+    padding-left: 10px;
+    padding-right: 10px;
+  } */
+  .tintuc-component-content {
+    padding: 20px 10px;
+  }
+  .title-desc-component {
+    width: 100%;
+  }
+  .slide-duan-info-desc {
+    width: 80%;
+  }
+  .tieuchi-item-box {
+    padding: 10px 0;
+    width: 260px;
+  }
+  .tieuchi-component {
+    padding: 15px 0;
+  }
+  .gioithieu-desc p {
+    text-align: justify;
+  }
+  .youtube {
+    height: 300px !important;
+  }
+}
+.custom-theme-mobile {
+  background-image: linear-gradient(to bottom, #00a651, #017439);
+}
+.menu-mobile {
+  list-style: none;
+  padding: 0;
+  line-height: 2;
+}
+.menu-mobile a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.yellow {
+  color: yellow !important;
+}
+.bg-footer-mobile {
+  background-image: linear-gradient(to bottom, #00a651, #017439);
+}
+.youtube {
+  height: 100%;
 }
