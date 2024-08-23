@@ -1,7 +1,5 @@
 <?php
-
-
-$product_type_list = $db->getRaw("SELECT * FROM product_types");
+$product_type_list = $db->getRaw("SELECT * FROM product_types ORDER BY stt ASC");
 $smg = getFlashData('smg');
 ?>
 
@@ -51,19 +49,23 @@ $smg = getFlashData('smg');
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="5%">STT</th>
+                                <th width="6%" class="text-center">STT</th>
                                 <th width="10%">Hình ảnh</th>
                                 <th>Tiêu đề</th>
+                                <th width="10%" class="text-center">Danh mục</th>
+                                <th width="10%" class="text-center">Nổi bật</th>
                                 <th width="10%" class="text-center">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $dem = 1;
                             foreach ($product_type_list as $item):
                                 ?>
                                 <tr>
-                                    <td><?= $dem++ ?></td>
+                                    <td>
+                                        <input data-id="<?= $item['id'] ?>" class="form-control text-center stt-input"
+                                            type="text" value="<?= $item['stt'] ?>">
+                                    </td>
                                     <td>
                                         <img style="height: 50px;" onerror="this.src='../assets/images/noimage/noimage.png'"
                                             src="../assets/images/upload/<?= $item['image'] ?>">
@@ -73,6 +75,14 @@ $smg = getFlashData('smg');
                                             class="text-decoration-none text-black">
                                             <?= $item['title'] ?>
                                         </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <input data-id="<?= $item['id'] ?>" type="checkbox" name="noibat" id="noibat"
+                                            class="form-check-input danhmuc-checkbox" <?= $item['danhmuc'] == 1 ? 'checked' : '' ?>>
+                                    </td>
+                                    <td class="text-center">
+                                        <input data-id="<?= $item['id'] ?>" type="checkbox" name="noibat" id="noibat"
+                                            class="form-check-input highlight-checkbox" <?= $item['noibat'] == 1 ? 'checked' : '' ?>>
                                     </td>
                                     <td class="text-center">
                                         <a href="?com=product_type&act=edit&id=<?= $item['id'] ?>"
@@ -96,3 +106,68 @@ $smg = getFlashData('smg');
     <!--end::App Content-->
 </main>
 <!--end::App Main-->
+
+<script>
+    $(document).ready(function () {
+        $('.highlight-checkbox').on('change', function () {
+            var productId = $(this).data('id');
+            var isChecked = $(this).is(':checked');
+
+            $.ajax({
+                url: 'api/product_type/noibat.php',
+                type: 'POST',
+                data: {
+                    id: productId,
+                    highlight: isChecked ? 1 : 0
+                },
+                success: function (response) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+        $('.danhmuc-checkbox').on('change', function () {
+            var productId = $(this).data('id');
+            var isChecked = $(this).is(':checked');
+
+            $.ajax({
+                url: 'api/product_type/danhmuc.php',
+                type: 'POST',
+                data: {
+                    id: productId,
+                    highlight: isChecked ? 1 : 0
+                },
+                success: function (response) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+        $('.stt-input').on('change', function () {
+            var productId = $(this).data('id');
+            var newStt = $(this).val();
+
+            $.ajax({
+                url: 'api/product_type/stt.php',
+                type: 'POST',
+                data: {
+                    id: productId,
+                    stt: newStt
+                },
+                success: function (response) {
+                    // Xử lý phản hồi từ server nếu cần
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>

@@ -1,5 +1,5 @@
 <?php
-$danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE slug = 'bon-cau-khoi'OR slug='lavabo-vinaphaco'");
+$danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE noibat = '1'");
 ?>
 <section id="sanphamnoibat">
     <?php foreach ($danhmucnoibat as $danhmuc): ?>
@@ -14,7 +14,7 @@ $danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE slug = 'bon-cau-
             <div class="sanpham-list">
                 <?php
                 $id = $danhmuc['id'];
-                $sanphamnoibat = $db->getRaw("SELECT * FROM products WHERE product_type_id = '$id'");
+                $sanphamnoibat = $db->getRaw("SELECT * FROM products WHERE product_type_id = '$id' AND noibat = '1'");
                 foreach ($sanphamnoibat as $sanpham): ?>
                     <div class="sanpham-box">
                         <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">

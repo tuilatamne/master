@@ -1,5 +1,5 @@
 <?php
-$danhmuc_list = $db->getRaw("SELECT * FROM product_types");
+$danhmuc_list = $db->getRaw("SELECT * FROM product_types WHERE danhmuc = '1' ORDER BY stt ASC");
 ?>
 <section id="danhmucsanpham">
     <div class="danhmuc-component wrap-content">
