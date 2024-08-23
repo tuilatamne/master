@@ -10,7 +10,7 @@ $smg = getFlashData('smg');
 </div>
 <div class="wrap-content px-3 my-4">
     <div class="row mb-5">
-        <p class="title-lienhe">Liên hệ</p>
+        <h2 class="title-lienhe">Liên hệ</h2>
         <div class="col-md-6">
             <div class="lienhe-content">
                 <?= $lienhe ?>

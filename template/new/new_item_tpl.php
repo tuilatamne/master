@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="wrap-content px-3 my-4">
-    <p class="title-lienhe"><?= $title ?></p>
+    <h2 class="title-lienhe"><?= $title ?></h2>
     <?php if (empty($new))
     {
         $func->getSmg('Nội dung chưa được cập nhật', 'warning');

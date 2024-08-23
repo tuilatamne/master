@@ -1,11 +1,12 @@
 <?php
 $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
+$phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
 ?>
 
 
 <header id="header">
     <div class="header-layout wrap-content flex-column flex-md-row">
-        <div class="header-left">
+        <div class="header-left logo-image">
             <a href="./">
                 <img style="width: 277px; height: 76px;" src="assets/images/upload/<?= $logo ?>" alt="logo">
             </a>
@@ -25,8 +26,7 @@ $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
                     </div>
                     <div class="d-flex flex-column justify-content-evenly ms-2">
                         <span class="header-hotline-title">Hotline 24/7</span>
-                        <span class="header-hotline-content">(+84)
-                            <?= $f->formatPhoneNumber($setting_info[2]['setting_value']) ?></span>
+                        <span class="header-hotline-content" id="phone-number">(+84) <?= $phone_number ?></span>
                     </div>
                 </div>
             </div>

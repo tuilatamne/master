@@ -222,13 +222,13 @@
                                         <p>Slideshow</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="?com=photo&act=man_photo&type=doi-tac"
                                         class="nav-link <?= $_GET['type'] == 'doi-tac' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-circle"></i>
                                         <p>Đối tác</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="?com=photo&act=man_photo&type=quang-cao"
                                         class="nav-link <?= $_GET['type'] == 'quang-cao' ? 'active' : '' ?>">
@@ -247,7 +247,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item <?= $com == 'photo' || $com == 'video' ? 'menu-open' : '' ?>">
+                <li class="nav-item <?= $com == 'file' ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link <?= $com == 'file' ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-images"></i>
                         <p>
@@ -257,8 +257,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="?com=photo&act=man_photo&type=video"
-                                class="nav-link <?= $_GET['type'] == 'video' ? 'active' : '' ?>">
+                            <a href="?com=file&act=list" class="nav-link <?= $com == 'file' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Catologue</p>
                             </a>

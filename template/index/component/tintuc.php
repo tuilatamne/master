@@ -11,7 +11,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
             <img src="assets/images/page/danhmucright.svg">
         </div>
         <div class="row tintuc-component-content">
-            <div class="col-md-6">
+            <div class="col-md-6 overflow-auto">
                 <?php foreach ($tintuc_list as $index => $tintuc): ?>
                     <div class="row tintuc-item-row">
                         <?php if ($index % 2 == 0): ?>
@@ -42,7 +42,7 @@ $list_video = $db->getRaw("SELECT * FROM images WHERE type = 'video'");
                     </div>
                 <?php endforeach; ?>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 overflow-auto">
                 <?php
                 foreach ($list_video as $video): ?>
                     <iframe class="w-100 youtube"

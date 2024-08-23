@@ -18,7 +18,8 @@ $effects = [
     <div class="slide1">
         <?php foreach ($slider_list as $index => $slide): ?>
             <div class="slick-slide">
-                <img src="assets/images/upload/<?php echo $slide['image']; ?>" alt="Slide <?php echo $index + 1; ?>"
+                <img class="w-100" src="assets/images/upload/<?php echo $slide['image']; ?>"
+                    alt="Slide <?php echo $index + 1; ?>"
                     class="animate__animated <?php echo $effects[$index % count($effects)]; ?>">
             </div>
         <?php endforeach; ?>

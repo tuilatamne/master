@@ -3,6 +3,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
 
+
+<script>
+    $(document).ready(function () {
+        function startAnimation() {
+            $('#phone-number').textillate({
+                in: {
+                    effect: 'fadeIn',   // Hiệu ứng fade in cho từng chữ số
+                    delayScale: 1.5,    // Tăng tốc độ delay giữa các ký tự
+                    delay: 50,          // Đặt độ trễ giữa các chữ số
+                    sync: false,        // False để mỗi ký tự có hiệu ứng riêng
+                    shuffle: false      // Không xáo trộn các ký tự
+                },
+                out: {
+                    effect: 'fadeOut',  // Hiệu ứng fade out để ẩn đi
+                    delayScale: 1.5,
+                    delay: 50,
+                    sync: false,
+                    shuffle: false
+                },
+                loop: true            // Lặp lại hiệu ứng liên tục
+            });
+        }
+
+        // Gọi startAnimation ban đầu
+        startAnimation();
+    });
+
+
+</script>
 <script>
     $('.slide-duan').slick({
         slidesToShow: 3,
@@ -106,6 +135,7 @@
             autoplaySpeed: 2000,
             dots: false, // Bỏ các nút điều hướng bên dưới
             arrows: false,
+            adaptiveHeight: true
         });
 
         // Kích hoạt hiệu ứng khi slide thay đổi

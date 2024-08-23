@@ -48,7 +48,7 @@ switch ($url)
         $noidung = ob_get_clean();
         break;
     case 'catalogue':
-        require_once TEMPLATE . 'new/new_list_tpl.php';
+        require_once TEMPLATE . 'file/list_tpl.php';
         $noidung = ob_get_clean();
         break;
     case 'du-an':

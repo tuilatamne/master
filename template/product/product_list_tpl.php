@@ -23,7 +23,7 @@ $smg_type = getFlashData('smg_type');
     </div>
 </div>
 <div class="wrap-content my-4 px-3">
-    <p class="title-lienhe"><?= empty($title) ? 'TẤT CẢ SẢN PHẨM' : $title ?></p>
+    <h2 class="title-lienhe"><?= empty($title) ? 'TẤT CẢ SẢN PHẨM' : $title ?></h2>
     <?php
     if (!empty($smg))
     {
@@ -31,17 +31,20 @@ $smg_type = getFlashData('smg_type');
     } ?>
     <div class="row">
         <?php foreach ($list_sanpham as $sanpham): ?>
-            <div class="col-6 col-sm-4 col-md-3">
-                <div class="sanpham-item">
-                    <a href="<?= $sanpham['slug'] ?>">
-                        <img style="height: 200px;" src="assets/images/upload/<?= $sanpham['image'] ?>"
-                            onerror="this.src='assets/images/noimage/noimage.png'" alt="Ảnh sản phẩm">
+            <div class="col-6 col-sm-4 col-md-3 mb-4">
+                <div class="sanpham-box">
+                    <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
+                        <div class="sanpham-item">
+                            <div class="sanpham-item-image-box sanpham-sale">
+                                <img src="assets/images/upload/<?= $sanpham['image'] ?>" alt="<?= $sanpham['title'] ?>">
+                            </div>
+                            <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="giagoc"><?= $sanpham['price'] ?></span>
+                                <span class="discount"><?= $sanpham['discount'] ?></span>
+                            </div>
+                        </div>
                     </a>
-                    <a class="sanpham-item-title" href="<?= $sanpham['slug'] ?>">
-                        <?= $sanpham['title'] ?>
-                    </a>
-                    <p class="sanpham-item-desc"><?= $sanpham['price'] ?></p>
-                    <p class="sanpham-item-desc"><?= $sanpham['description'] ?></p>
                 </div>
             </div>
         <?php endforeach; ?>

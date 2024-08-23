@@ -76,12 +76,12 @@ $chinhsach_list = $db->getRaw("SELECT * FROM news WHERE type = 'chinh-sach'");
 <div class="copyright">
     <p>Copyright © <span style="font-weight: 500;"><?= $setting_info[0]['setting_value'] ?></span> - 2024.</p>
 </div>
-<div class="position-fixed bottom-0 start-0 end-0">
+<div class="d-md-none position-fixed bottom-0 start-0 end-0">
     <div class="p-2">
         <a href="https://zalo.me/<?= $setting_info[3]['setting_value'] ?>"><img style="width: 50px; height: 50px ;"
                 src="assets/images/page/icon-zalo.png"></a>
     </div>
-    <div class="row bg-footer-mobile py-3 d-md-none">
+    <div class="row bg-footer-mobile py-3">
         <div class="col d-flex flex-column align-items-center">
             <a class="text-center text-decoration-none text-white" href="tel:<?= $setting_info[2]['setting_value'] ?>">
                 <i class="fa-solid fa-phone fs-5"></i>
