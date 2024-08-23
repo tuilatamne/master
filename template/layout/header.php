@@ -13,13 +13,15 @@ $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
         </div>
         <div class="header-right">
             <div class="header-right-top">
-                <div class="search-container">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm bạn cần">
-                    <button>
-                        <img src="assets/images/page/icon-search.svg" class="me-1">
-                        <span style="padding-top: 2px;">Search</span>
-                    </button>
-                </div>
+                <form action="./" method="get">
+                    <div class="search-container">
+                        <input name="timkiem" type="text" placeholder="Tìm kiếm sản phẩm bạn cần">
+                        <button type="submit">
+                            <img src="assets/images/page/icon-search.svg" class="me-1">
+                            <span style="padding-top: 2px;">Search</span>
+                        </button>
+                    </div>
+                </form>
                 <div class="header-tel-box d-none d-md-flex">
                     <div class="icon-call">
                         <img src="assets/images/page/Vector.svg" onerror="this.src='assets/images/noimage/noimage.png'">

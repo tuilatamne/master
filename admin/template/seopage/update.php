@@ -32,6 +32,19 @@ switch ($type)
     case 'lien-he':
         $vietsub = 'Liên Hệ';
         break;
+    case 'gioi-thieu':
+        $vietsub = 'Giới thiệu';
+        break;
+    case 'catalogue':
+        $vietsub = 'Catalogue';
+        break;
+    case 'tuyen-dung':
+        $vietsub = 'Tuyển dụng';
+        break;
+    case 'du-an':
+        $vietsub = 'Dự án';
+        break;
+
 }
 $smg = getFlashData('smg')
     ?>

@@ -13,6 +13,21 @@ if (empty($list_sanpham))
     setFlashData('smg', 'Nội dung đang được cập nhật');
     setFlashData('smg_type', 'danger');
 }
+if (isset($search_status) && $search_status)
+{
+    if (!empty($list_result))
+    {
+        $list_sanpham = $list_result;
+    } else
+    {
+        $list_sanpham = [];
+        setFlashData('smg', "Không có kết quả tìm kiếm cho $search_keyword");
+        setFlashData('smg_type', 'danger');
+    }
+}
+
+
+
 $smg = getFlashData('smg');
 $smg_type = getFlashData('smg_type');
 ?>

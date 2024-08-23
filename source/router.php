@@ -18,92 +18,98 @@ $url = rtrim($url, '/');
 // Loại bỏ dấu gạch chéo đầu tiên nếu có
 $url = ltrim($url, '/');
 
-
-
 ob_start();
-
-
-
-switch ($url)
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['timkiem']))
 {
-    case '':
-        require_once TEMPLATE . 'index/index_tpl.php';
-        $title = $setting_info[0]['setting_value'];
-        $active = 'trang-chu';
-        $noidung = ob_get_clean();
-        break;
-    case 'gioi-thieu':
-        $new = $db->oneRaw("SELECT * FROM news WHERE type = 'gioi-thieu'");
-        $title = 'Giới thiệu - ' . $setting_info[0]['setting_value'];
-        $active = 'gioi-thieu';
-        require_once TEMPLATE . 'new/new_item_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'tin-tuc':
-        require_once TEMPLATE . 'new/new_list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'tuyen-dung':
-        require_once TEMPLATE . 'new/new_list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'catalogue':
-        require_once TEMPLATE . 'file/list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'du-an':
-        require_once TEMPLATE . 'new/new_list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'khuyen-mai':
-        require_once TEMPLATE . 'new/new_list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'san-pham':
-        $title = 'Sản phẩm';
-        require_once TEMPLATE . 'product/product_list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    case 'lien-he':
-        require_once TEMPLATE . 'contact/contact_tpl.php';
-        $title = 'Liên hệ';
-        $active = 'lien-he';
-        $noidung = ob_get_clean();
-        break;
-    case 'video':
-        require_once TEMPLATE . 'video/list_tpl.php';
-        $noidung = ob_get_clean();
-        break;
-    default:
-        $slug = ltrim($url, '/');
-
-        $new = $db->oneRaw("SELECT * FROM news WHERE slug = '$slug'");
-        if (!empty($new))
-        {
-            $title = $new['title'];
+    $search_keyword = $_GET['timkiem'];
+    $list_result = $db->getRaw("SELECT * FROM products WHERE title LIKE '%$search_keyword%'");
+    $title = "Tìm kiếm: $search_keyword";
+    $search_status = true;
+    require_once TEMPLATE . 'product/product_list_tpl.php';
+    $noidung = ob_get_clean();
+} else
+{
+    switch ($url)
+    {
+        case '':
+            require_once TEMPLATE . 'index/index_tpl.php';
+            $title = $setting_info[0]['setting_value'];
+            $active = 'trang-chu';
+            $noidung = ob_get_clean();
+            break;
+        case 'gioi-thieu':
+            $new = $db->oneRaw("SELECT * FROM news WHERE type = 'gioi-thieu'");
+            $title = 'Giới thiệu - ' . $setting_info[0]['setting_value'];
+            $active = 'gioi-thieu';
             require_once TEMPLATE . 'new/new_item_tpl.php';
             $noidung = ob_get_clean();
             break;
-        }
-        $product_type = $db->oneRaw("SELECT * FROM product_types WHERE slug = '$url'");
-        if (!empty($product_type))
-        {
-            $title = $product_type['title'];
-            $type_id = $product_type['id'];
+        case 'tin-tuc':
+            require_once TEMPLATE . 'new/new_list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'tuyen-dung':
+            require_once TEMPLATE . 'new/new_list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'catalogue':
+            require_once TEMPLATE . 'file/list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'du-an':
+            require_once TEMPLATE . 'new/new_list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'khuyen-mai':
+            require_once TEMPLATE . 'new/new_list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'san-pham':
+            $title = 'Sản phẩm';
             require_once TEMPLATE . 'product/product_list_tpl.php';
             $noidung = ob_get_clean();
             break;
-        }
-
-        $product = $db->oneRaw("SELECT * FROM products WHERE slug = '$url'");
-        if (!empty($product))
-        {
-            $title = $product['title'];
-            require_once TEMPLATE . 'product/product_item_tpl.php';
+        case 'lien-he':
+            require_once TEMPLATE . 'contact/contact_tpl.php';
+            $title = 'Liên hệ';
+            $active = 'lien-he';
             $noidung = ob_get_clean();
             break;
-        }
+        case 'video':
+            require_once TEMPLATE . 'video/list_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        default:
+            $slug = ltrim($url, '/');
 
-        $noidung = '<span>Đường dẫn rỗng ' . $url . '</span>';
-        break;
+            $new = $db->oneRaw("SELECT * FROM news WHERE slug = '$slug'");
+            if (!empty($new))
+            {
+                $title = $new['title'];
+                require_once TEMPLATE . 'new/new_item_tpl.php';
+                $noidung = ob_get_clean();
+                break;
+            }
+            $product_type = $db->oneRaw("SELECT * FROM product_types WHERE slug = '$url'");
+            if (!empty($product_type))
+            {
+                $title = $product_type['title'];
+                $type_id = $product_type['id'];
+                require_once TEMPLATE . 'product/product_list_tpl.php';
+                $noidung = ob_get_clean();
+                break;
+            }
+
+            $product = $db->oneRaw("SELECT * FROM products WHERE slug = '$url'");
+            if (!empty($product))
+            {
+                $title = $product['title'];
+                require_once TEMPLATE . 'product/product_item_tpl.php';
+                $noidung = ob_get_clean();
+                break;
+            }
+
+            // Nếu đường dẫn không có
+            $f->redirect('./');
+    }
 }

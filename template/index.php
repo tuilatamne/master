@@ -17,6 +17,7 @@
     <!-- Header -->
     <?php require_once TEMPLATE . LAYOUT . "header.php" ?>
 
+
     <!-- Nội dung web -->
     <?= $noidung ?>
 

@@ -5,7 +5,6 @@
     </div>
 </div>
 <div class="wrap-content">
-    <p class="p-3 bg-light"><span class="text-secondary">Sản phẩm</span> / <?= $product['title'] ?></p>
     <div class="row my-4 px-3">
         <div class="col-md-5">
             <div class="p-2 border rounded-3">

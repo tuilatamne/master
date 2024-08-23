@@ -275,6 +275,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="?com=seopage&act=update&type=gioi-thieu"
+                                class="nav-link <?= $_GET['type'] == 'gioi-thieu' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Giới thiệu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?com=seopage&act=update&type=san-pham"
                                 class="nav-link <?= $_GET['type'] == 'san-pham' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
@@ -282,10 +289,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="?com=seopage&act=update&type=du-an"
+                                class="nav-link <?= $_GET['type'] == 'du-an' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Dự án</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?com=seopage&act=update&type=catalogue"
+                                class="nav-link <?= $_GET['type'] == 'catalogue' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Catalogue</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?com=seopage&act=update&type=tin-tuc"
                                 class="nav-link <?= $_GET['type'] == 'tin-tuc' ? 'active' : '' ?>">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Tin tức</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?com=seopage&act=update&type=tuyen-dung"
+                                class="nav-link <?= $_GET['type'] == 'tuyen-dung' ? 'active' : '' ?>">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Tuyển dụng</p>
                             </a>
                         </li>
                         <li class="nav-item">
