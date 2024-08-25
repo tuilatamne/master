@@ -170,8 +170,8 @@ class func
 
         return $formatted;
     }
-    public function uploadfile()
+    public function format_tiente($number)
     {
-
+        return number_format($number, 0, '', '.');
     }
 }

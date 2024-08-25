@@ -24,8 +24,8 @@ $danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE noibat = '1'");
                                 </div>
                                 <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <span class="giagoc"><?= $sanpham['price'] ?></span>
-                                    <span class="discount"><?= $sanpham['discount'] ?></span>
+                                    <span class="giagoc"><?= $f->format_tiente($sanpham['original_price']) ?>đ</span>
+                                    <span class="discount"><?= $f->format_tiente($sanpham['price']) ?>đ</span>
                                 </div>
                             </div>
                         </a>

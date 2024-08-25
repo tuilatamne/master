@@ -1,6 +1,7 @@
 <?php
 $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
 $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
+$cap1 = $db->getRaw('SELECT * FROM product_types');
 ?>
 
 
@@ -13,12 +14,12 @@ $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
         </div>
         <div class="header-right">
             <div class="header-right-top">
-                <form action="./" method="get">
+                <form action="./" method="get" class="form-search">
                     <div class="search-container">
                         <input name="timkiem" type="text" placeholder="Tìm kiếm sản phẩm bạn cần">
                         <button type="submit">
-                            <img src="assets/images/page/icon-search.svg" class="me-1">
-                            <span style="padding-top: 2px;">Search</span>
+                            <img src="assets/images/page/icon-search.svg" class="me-sm-1">
+                            <span class="d-none d-sm-inline" style="padding-top: 2px;">Search</span>
                         </button>
                     </div>
                 </form>
@@ -38,8 +39,18 @@ $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
                         <li class="menu-item"><a href="./"><img src="assets/images/page/home-icon.svg"></a></li>
                         <li class="menu-item"><a class="menu-link <?= $url == 'gioi-thieu' ? 'active' : '' ?>"
                                 href="gioi-thieu">GIỚI THIỆU</a></li>
-                        <li class="menu-item"><a class="menu-link mucsanpham <?= $url == 'san-pham' ? 'active' : '' ?>"
-                                href="san-pham">SẢN PHẨM</a></li>
+                        <li id="sanpham-header" class="menu-item position-relative"><a
+                                class="menu-link mucsanpham <?= $url == 'san-pham' ? 'active' : '' ?>"
+                                href="san-pham">SẢN PHẨM</a>
+                            <div id="cap1" class="cap1 shadow-lg d-none">
+                                <ul>
+                                    <?php foreach ($cap1 as $product_type): ?>
+                                        <li class="dropdown-item"><a
+                                                href="<?= $product_type['slug'] ?>"><?= $product_type['title'] ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="menu-item"><a class="menu-link <?= $url == 'du-an' ? 'active' : '' ?>"
                                 href="du-an">DỰ ÁN</a></li>
                         <li class="menu-item"><a class="menu-link <?= $url == 'catalogue' ? 'active' : '' ?>"
@@ -100,3 +111,25 @@ $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var timeout;
+
+        // Khi hover vào #sanpham-header hoặc #cap1
+        $('#sanpham-header, #cap1').hover(
+            function () {
+                // Clear timeout nếu đang tồn tại
+                clearTimeout(timeout);
+                // Hiển thị #cap1
+                $('#cap1').removeClass('d-none');
+            },
+            function () {
+                // Đặt timeout để add class sau 1 giây nếu không hover vào gì cả
+                timeout = setTimeout(function () {
+                    $('#cap1').addClass('d-none');
+                }, 100);
+            }
+        );
+    });
+</script>

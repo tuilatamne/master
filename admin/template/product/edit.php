@@ -6,8 +6,8 @@ if ($func->isPOST())
     $data_update = [
         'slug' => $filterAll['slug'],
         'title' => $filterAll['title'],
+        'original_price' => $filterAll['original_price'],
         'price' => $filterAll['price'],
-        'discount' => $filterAll['discount'],
         'description' => $filterAll['description'],
         'content' => $_POST['content'],
         'seo_title' => $filterAll['seo_title'],
@@ -68,7 +68,7 @@ $smg = getFlashData('smg');
                 $func->getSmg($smg);
             }
             ?>
-            <form method="post" enctype="multipart/form-data">
+            <form id="edit-product" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="card card-primary card-outline mb-4">
@@ -94,13 +94,13 @@ $smg = getFlashData('smg');
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="company_name" class="form-label fw-bold">Giá bán</label>
-                                        <input type="text" name="price" class="form-control"
-                                            value="<?= $product['price'] ?>">
+                                        <input id="original_price" type="text" name="original_price"
+                                            class="form-control tien" value="<?= $product['original_price'] ?>">
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label for="discount" class="form-label fw-bold">Giá giảm</label>
-                                        <input type="text" name="discount" class="form-control"
-                                            value="<?= $product['discount'] ?>">
+                                        <input id="discounted_price" type="text" name="price" class="form-control"
+                                            value="<?= $product['price'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -207,3 +207,48 @@ $smg = getFlashData('smg');
     <!--end::App Content-->
 </main>
 <!--end::App Main-->
+<script>
+    $(document).ready(function () {
+        function formatCurrency(input) {
+            let value = $(input).val();
+
+            // Loại bỏ các ký tự không phải số
+            value = value.replace(/[^0-9]/g, '');
+
+            if (value) {
+                // Định dạng tiền tệ
+                const formattedValue = new Intl.NumberFormat('vi-VN', {
+                    style: 'currency',
+                    currency: 'VND',
+                    minimumFractionDigits: 0
+                }).format(value);
+
+                // Cập nhật giá trị đã định dạng vào thẻ input
+                $(input).val(formattedValue);
+            }
+        }
+
+        // Định dạng các giá trị hiện có khi load trang
+        $('#original_price, #discounted_price').each(function () {
+            formatCurrency(this);
+        });
+
+        // Lắng nghe sự kiện input cho cả hai thẻ input
+        $('#original_price, #discounted_price').on('input', function () {
+            formatCurrency(this);
+        });
+
+        // Trước khi submit form, loại bỏ định dạng tiền tệ
+        $('#edit-product').on('submit', function () {
+            $('#original_price, #discounted_price').each(function () {
+                let value = $(this).val();
+
+                // Loại bỏ tất cả ký tự không phải số
+                value = value.replace(/[^0-9]/g, '');
+
+                // Cập nhật giá trị gốc vào thẻ input
+                $(this).val(value);
+            });
+        });
+    });
+</script>
