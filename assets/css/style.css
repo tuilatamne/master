@@ -1,4 +1,5 @@
 /* font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @font-face {
   font-family: "Gilroy";
   src: url("../font/SVN-Gilroy Thin.otf") format("opentype");
@@ -181,6 +182,21 @@ body {
   font-weight: 500;
   padding: 0 25px;
 }
+.cart-icon {
+  padding: 11px;
+  position: relative;
+}
+.number-of-cart {
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background-color: var(--primary-color);
+  padding: 3px 5px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+}
 .icon-call {
   padding: 9px;
   border: 1px solid var(--cicle-color);
@@ -292,15 +308,19 @@ body {
     width: 400px;
   }
 }
-.search-container input[type="text"] {
+.search-container input {
   border: none;
   background-color: transparent;
   outline: none;
   font-size: 14px;
   flex-grow: 1;
   color: #979797;
+  font-weight: 500;
 }
-
+.search-container input::placeholder {
+  color: #979797;
+  font-weight: 500;
+}
 .search-container button {
   background-color: #00a651;
   color: white;
@@ -501,6 +521,10 @@ body {
 .danhmuc-image {
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+.danhmuc-image:hover {
+  transform: scale(1.2);
 }
 .danhmuc-item-title {
   font-size: 18px;
@@ -537,6 +561,12 @@ body {
   /* padding: 9px; */
   border: 1px solid #d9d9d9;
   border-radius: 7px;
+}
+.sanpham-item-image {
+  transition: transform 0.3s ease-in-out;
+}
+.sanpham-item-image:hover {
+  transform: scale(1.1);
 }
 .sanpham-sale {
   position: relative;

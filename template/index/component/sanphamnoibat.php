@@ -20,7 +20,8 @@ $danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE noibat = '1'");
                         <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
                             <div class="sanpham-item">
                                 <div class="sanpham-item-image-box sanpham-sale">
-                                    <img src="assets/images/upload/<?= $sanpham['image'] ?>" alt="<?= $sanpham['title'] ?>">
+                                    <img class="sanpham-item-image" src="assets/images/upload/<?= $sanpham['image'] ?>"
+                                        alt="<?= $sanpham['title'] ?>">
                                 </div>
                                 <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
                                 <div class="d-flex align-items-center justify-content-center">

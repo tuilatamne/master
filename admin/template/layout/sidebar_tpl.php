@@ -50,6 +50,13 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-header">Quản lý đơn hàng</li>
+                <li class="nav-item">
+                    <a href="?com=order&act=list" class="nav-link <?= $com == 'order' ? 'active' : '' ?>">
+                        <i class="nav-icon fa-solid fa-bag-shopping"></i>
+                        <p>Quản lý đơn hàng</p>
+                    </a>
+                </li>
                 <li class="nav-header">Bài viết không cấp</li>
                 <li class="nav-item <?= $com == 'new' ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link <?= $com == 'new' ? 'active' : '' ?>">

@@ -79,6 +79,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['timkiem']))
             require_once TEMPLATE . 'video/list_tpl.php';
             $noidung = ob_get_clean();
             break;
+        case 'gio-hang':
+            require_once TEMPLATE . 'thanhtoan/cart_tpl.php';
+            $noidung = ob_get_clean();
+            break;
+        case 'thanh-toan':
+            require_once TEMPLATE . 'thanhtoan/thanhtoan_tpl.php';
+            $noidung = ob_get_clean();
+            break;
         default:
             $slug = ltrim($url, '/');
 

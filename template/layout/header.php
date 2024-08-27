@@ -23,6 +23,12 @@ $cap1 = $db->getRaw('SELECT * FROM product_types');
                         </button>
                     </div>
                 </form>
+                <a href="./gio-hang" class="text-decoration-none">
+                    <div class="cart-icon border rounded-circle">
+                        <i style="color: var(--primary-color);" class="fa-solid fa-cart-shopping"></i>
+                        <span class="number-of-cart">4</span>
+                    </div>
+                </a>
                 <div class="header-tel-box d-none d-md-flex">
                     <div class="icon-call">
                         <img src="assets/images/page/Vector.svg" onerror="this.src='assets/images/noimage/noimage.png'">

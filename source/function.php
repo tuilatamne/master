@@ -174,4 +174,26 @@ class func
     {
         return number_format($number, 0, '', '.');
     }
+    public function status_order($status = 1)
+    {
+        switch ($status)
+        {
+            case 1:
+                $vietsub = 'Mới đặt';
+                break;
+            case 2:
+                $vietsub = 'Đã duyệt';
+                break;
+            case 3:
+                $vietsub = 'Đã vận chuyển';
+                break;
+            case 4:
+                $vietsub = 'Thành công';
+                break;
+            case 5:
+                $vietsub = 'Đã huỷ';
+                break;
+        }
+        return $vietsub;
+    }
 }
