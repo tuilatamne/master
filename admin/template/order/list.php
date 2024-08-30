@@ -62,7 +62,12 @@ $smg = getFlashData('smg');
                                 ?>
                                 <tr>
                                     <td></td>
-                                    <td><?= $item['fullname'] ?></td>
+                                    <td>
+                                        <a class="text-decoration-none fw-bold text-black"
+                                            href="?com=order&act=edit&id=<?= $item['id'] ?>">
+                                            <?= $item['fullname'] ?>
+                                        </a>
+                                    </td>
                                     <td><?= $item['create_at'] ?></td>
                                     <td class="fw-bold"><?= $func->format_tiente($item['total_price']) ?>đ</td>
                                     <td class="fw-bold"><?= $func->status_order($item['status']) ?></td>

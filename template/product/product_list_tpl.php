@@ -2,10 +2,10 @@
 $active = 'san-pham';
 if (!empty($type_id))
 {
-    $sql = "SELECT * FROM products WHERE product_type_id = '$type_id'";
+    $sql = "SELECT * FROM products WHERE product_type_id = '$type_id' AND hienthi = '1'";
 } else
 {
-    $sql = 'SELECT * FROM products';
+    $sql = "SELECT * FROM products WHERE hienthi = '1'";
 }
 $list_sanpham = $db->getRaw($sql);
 if (empty($list_sanpham))
@@ -48,19 +48,28 @@ $smg_type = getFlashData('smg_type');
         <?php foreach ($list_sanpham as $sanpham): ?>
             <div class="col-6 col-sm-4 col-md-3 mb-4">
                 <div class="sanpham-box">
-                    <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
-                        <div class="sanpham-item">
+
+                    <div class="sanpham-item">
+                        <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
                             <div class="sanpham-item-image-box sanpham-sale">
                                 <img class="sanpham-item-image" src="assets/images/upload/<?= $sanpham['image'] ?>"
                                     alt="<?= $sanpham['title'] ?>">
                             </div>
+                        </a>
+                        <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
                             <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <span class="giagoc"><?= $sanpham['price'] ?></span>
-                                <span class="discount"><?= $sanpham['discount'] ?></span>
-                            </div>
+                        </a>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <span class="giagoc"><?= $f->format_tiente($sanpham['original_price']) ?>đ</span>
+                            <span class="discount"><?= $f->format_tiente($sanpham['price']) ?>đ</span>
                         </div>
-                    </a>
+                        <button
+                            class="btn-muangay mt-4 w-75 btn btn-outline-success d-flex align-items-center justify-content-center"
+                            data-id="<?= $sanpham['id'] ?>">
+                            <span class="me-2 ms-3 text-muangay">Mua ngay</span>
+                            <img src="assets/images/page/btn-muangay.svg">
+                        </button>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

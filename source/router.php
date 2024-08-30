@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['timkiem']))
             $noidung = ob_get_clean();
             break;
         case 'gio-hang':
+            $title = 'Giỏ hàng';
             require_once TEMPLATE . 'thanhtoan/cart_tpl.php';
             $noidung = ob_get_clean();
             break;

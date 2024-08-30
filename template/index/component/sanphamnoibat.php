@@ -17,19 +17,29 @@ $danhmucnoibat = $db->getRaw("SELECT * FROM product_types WHERE noibat = '1'");
                 $sanphamnoibat = $db->getRaw("SELECT * FROM products WHERE product_type_id = '$id' AND noibat = '1'");
                 foreach ($sanphamnoibat as $sanpham): ?>
                     <div class="sanpham-box">
-                        <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
-                            <div class="sanpham-item">
+                        <!-- <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>"> -->
+                        <div class="sanpham-item">
+                            <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
                                 <div class="sanpham-item-image-box sanpham-sale">
                                     <img class="sanpham-item-image" src="assets/images/upload/<?= $sanpham['image'] ?>"
                                         alt="<?= $sanpham['title'] ?>">
                                 </div>
+                            </a>
+                            <a class="text-decoration-none" href="<?= $sanpham['slug'] ?>">
                                 <p class="sanpham-item-title"><?= $sanpham['title'] ?></p>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <span class="giagoc"><?= $f->format_tiente($sanpham['original_price']) ?>đ</span>
-                                    <span class="discount"><?= $f->format_tiente($sanpham['price']) ?>đ</span>
-                                </div>
+                            </a>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="giagoc"><?= $f->format_tiente($sanpham['original_price']) ?>đ</span>
+                                <span class="discount"><?= $f->format_tiente($sanpham['price']) ?>đ</span>
                             </div>
-                        </a>
+                            <button
+                                class="btn-muangay mt-4 w-75 btn btn-outline-success d-flex align-items-center justify-content-center"
+                                data-id="<?= $sanpham['id'] ?>">
+                                <span class="me-2 ms-3 text-muangay">Mua ngay</span>
+                                <img src="assets/images/page/btn-muangay.svg">
+                            </button>
+                        </div>
+                        <!-- </a> -->
                     </div>
                 <?php endforeach; ?>
             </div>

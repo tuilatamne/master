@@ -7,7 +7,19 @@
 
     <!-- Css -->
     <?php require_once TEMPLATE . LAYOUT . "css.php" ?>
+    <style>
+        /* Đối với Chrome, Safari, Edge, Opera */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
+        /* Đối với Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 <body>

@@ -26,7 +26,7 @@ $cap1 = $db->getRaw('SELECT * FROM product_types');
                 <a href="./gio-hang" class="text-decoration-none">
                     <div class="cart-icon border rounded-circle">
                         <i style="color: var(--primary-color);" class="fa-solid fa-cart-shopping"></i>
-                        <span class="number-of-cart">4</span>
+                        <span id="number-of-cart" class="number-of-cart">0</span>
                     </div>
                 </a>
                 <div class="header-tel-box d-none d-md-flex">

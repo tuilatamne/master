@@ -151,3 +151,26 @@
         });
     });
 </script>
+
+<!-- Nút mua ngay -->
+<script>
+    $(document).ready(function () {
+        $('.btn-muangay').click(function () {
+            var productId = $(this).data('id');
+            $.ajax({
+                url: 'api/cart/add-to-cart.php',
+                type: 'POST',
+                data: { id: productId },
+                success: function (response) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Đã thêm sản phẩm vào giỏ hàng",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                },
+            });
+        });
+    });
+</script>
