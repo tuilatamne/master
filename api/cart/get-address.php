@@ -29,7 +29,7 @@ if ($f->isPOST()):
     // Lấy danh sách phường, xã
     if ($yeucau == 'xa'):
         $danhsachxa = $db->getRaw("SELECT * FROM xaphuongthitran WHERE maqh = '$id'"); ?>
-        <option value="">Chọn Phường,Xã</option>
+        <option value="">Chọn Phường/Xã</option>
         <?php foreach ($danhsachxa as $xa): ?>
             <option value="<?= $xa['xaid'] ?>"><?= $xa['name'] ?></option>
         <?php endforeach; ?>

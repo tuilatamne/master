@@ -116,7 +116,7 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                             <div class="col-md-12 mb-3 d-flex align-items-center">
                                 <span class="fw-bold fs-6">Tạm tính:</span>
                                 <span id="tamtinh" class="discount"></span>
-                                <input id="tamtinh-input" type="hidden">
+                                <input id="tamtinh-input" type="hidden" name="total_price">
                             </div>
                             <div class="col-md-12">
                                 <p style="line-height: 1.5; font-size: 14px;"
@@ -126,7 +126,8 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                                     Chúng tôi sẽ liên lạc quý
                                     khách qua số
                                     điện thoại để hỗ trợ tất cả về đơn hàng.</p>
-                                <button type="submit" class="w-100 btn btn-success fw-bold">Đặt hàng</button>
+                                <button id="btn-dathang" type="submit" class="w-100 btn btn-success fw-bold">Đặt
+                                    hàng</button>
                             </div>
                         </form>
                     </div>
@@ -213,6 +214,12 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                 response = JSON.parse(response);
                 $("#tamtinh").html(response.format_total);
                 $("#tamtinh-input").val(response.total);
+                if (response.total == 0) {
+                    $("#btn-dathang").prop('disabled', true);
+                }
+                else {
+                    $("#btn-dathang").prop('disabled', false);
+                }
             }
         });
     }
