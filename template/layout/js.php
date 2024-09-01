@@ -162,13 +162,26 @@
                 type: 'POST',
                 data: { id: productId },
                 success: function (response) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Đã thêm sản phẩm vào giỏ hàng",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    response = JSON.parse(response);
+                    if (response.success) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Đã thêm sản phẩm vào giỏ hàng",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    } else {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "error",
+                            title: "Sản phẩm đã tồn tại trong giỏ hàng",
+                            footer: '<a  href="gio-hang">Xem giỏ hàng</a>',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    $("#number-of-cart").html(response.total_items);
                 },
             });
         });

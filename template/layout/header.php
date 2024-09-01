@@ -2,6 +2,7 @@
 $logo = $db->oneRaw("SELECT * FROM images WHERE type = 'logo'")['image'];
 $phone_number = $f->formatPhoneNumber($setting_info[2]['setting_value']);
 $cap1 = $db->getRaw('SELECT * FROM product_types');
+$number_of_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 ?>
 
 
@@ -26,7 +27,7 @@ $cap1 = $db->getRaw('SELECT * FROM product_types');
                 <a href="./gio-hang" class="text-decoration-none">
                     <div class="cart-icon border rounded-circle">
                         <i style="color: var(--primary-color);" class="fa-solid fa-cart-shopping"></i>
-                        <span id="number-of-cart" class="number-of-cart">0</span>
+                        <span id="number-of-cart" class="number-of-cart"><?= $number_of_cart ?></span>
                     </div>
                 </a>
                 <div class="header-tel-box d-none d-md-flex">

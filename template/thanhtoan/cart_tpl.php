@@ -1,38 +1,5 @@
 <?php
-$_SESSION['cart'] = [
-    '1' => [
-        'id' => 1,
-        'title' => 'Sản phẩm 1',
-        'original_price' => 2000000,
-        'price' => 1800000,
-        'quantity' => 2,
-        'image' => ''
-    ],
-    '2' => [
-        'id' => 2,
-        'title' => 'Sản phẩm 2',
-        'original_price' => 2000000,
-        'price' => 1800000,
-        'quantity' => 2,
-        'image' => ''
-    ],
-    '3' => [
-        'id' => 3,
-        'title' => 'Sản phẩm 3',
-        'original_price' => 2000000,
-        'price' => 1800000,
-        'quantity' => 2,
-        'image' => ''
-    ],
-    '4' => [
-        'id' => 4,
-        'title' => 'Sản phẩm 4',
-        'original_price' => 2000000,
-        'price' => 1800000,
-        'quantity' => 2,
-        'image' => ''
-    ],
-];
+// unset($_SESSION['cart']);
 $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
 ?>
 <section id="cart">
@@ -59,14 +26,16 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                 <div class="col-md-7">
                     <p class="fs-4 fw-bold">Giỏ hàng</p>
                     <?php foreach ($_SESSION['cart'] as $cart): ?>
-                        <div class="row py-3 my-3 border shadow-sm rounded">
+                        <div class="product-item row py-3 my-3 border shadow-sm rounded">
                             <div class="col-1">
                                 <div class="d-flex h-100 flex-column justify-content-center align-items-center">
-                                    <input style="cursor: pointer;" type="checkbox" class="form-check-input">
+                                    <input data-id="<?= $cart['id'] ?>" style="cursor: pointer;" type="checkbox"
+                                        class="check-status form-check-input" <?= $cart['status'] == true ? 'checked' : '' ?>>
                                 </div>
                             </div>
                             <div class="col-2 px-0">
-                                <img src="" onerror="this.src='assets/images/noimage/noimage.png'">
+                                <img src="assets/images/upload/<?= $cart['image'] ?>"
+                                    onerror="this.src='assets/images/noimage/noimage.png'">
                             </div>
                             <div class="col-7">
                                 <div class="h-100 d-flex flex-column justify-content-around">
@@ -79,17 +48,17 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                             </div>
                             <div class="col-2">
                                 <div class="h-100 d-flex flex-column justify-content-around align-items-end">
-                                    <button class="btn btn-delete" data-id="<?= $cart['id'] ?>"><i
+                                    <button class="btn-delete btn" data-id="<?= $cart['id'] ?>"><i
                                             class="fa-solid fa-trash-can text-danger"></i></button>
                                     <div class="d-flex">
-                                        <button type="button"
+                                        <button data-id="<?= $cart['id'] ?>" type="button"
                                             class="btn-decrease btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center">
                                             <i class="fa-solid fa-minus"></i>
                                         </button>
                                         <input data-id="<?= $cart['id'] ?>" style="width: 50px;" type="number"
-                                            class="cart-item-quantity text-center form-control form-control-sm"
-                                            value="<?= $cart['quantity'] ?>" min="0">
-                                        <button type="button"
+                                            class="input-quantity text-center form-control form-control-sm"
+                                            value="<?= $cart['quantity'] ?>" min="1">
+                                        <button data-id="<?= $cart['id'] ?>" type="button"
                                             class="btn-increase btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center">
                                             <i class="fa-solid fa-plus fw-bold"></i>
                                         </button>
@@ -147,7 +116,8 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                             </div>
                             <div class="col-md-12 mb-3 d-flex align-items-center">
                                 <span class="fw-bold fs-6">Tạm tính:</span>
-                                <span id="tamtinh" class="discount">2.000.000đ</span>
+                                <span id="tamtinh" class="discount"></span>
+                                <input id="tamtinh-input" type="hidden">
                             </div>
                             <div class="col-md-12">
                                 <p style="line-height: 1.5; font-size: 14px;"
@@ -166,6 +136,7 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
         <?php endif; ?>
     </div>
 </section>
+<!-- Hàm validate cho form -->
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (() => {
@@ -187,6 +158,7 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
         })
     })()
 </script>
+<!-- Hàm lấy địa danh sách tỉnh, huyện, xã -->
 <script>
     $("#tinh").change(function () {
         var tinhid = $(this).val();
@@ -222,5 +194,107 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                 }
             });
         }
+    });
+</script>
+
+<!-- Hàm tính tổng tiền -->
+
+<!-- Hàm cập nhật status -->
+
+<!-- Hàm tăng giảm số lượng -->
+
+<!-- Hàm xoá sản phẩm trong giỏ -->
+
+<script>
+    function updateTotalPrice() {
+        $.ajax({
+            url: 'api/cart/calculateCartTotal.php',
+            type: 'POST',
+            success: function (response) {
+                response = JSON.parse(response);
+                $("#tamtinh").html(response.format_total);
+                $("#tamtinh-input").val(response.total);
+            }
+        });
+    }
+    updateTotalPrice();
+    // Xử lý nút checkbox
+    $(document).on('change', '.check-status', function () {
+        var id = $(this).data('id');
+        var status = $(this).is(':checked') ? 1 : 0;
+
+        $.ajax({
+            url: 'api/cart/update-cart.php',
+            type: 'POST',
+            data: {
+                action: 'status',
+                id: id,
+                status: status
+            },
+            success: function (response) {
+                // Handle success (e.g., display a success message)
+                updateTotalPrice();
+            },
+            error: function () {
+                // Handle error
+                alert('Error updating status.');
+            }
+        });
+    });
+    $(document).on('click', '.btn-delete', function () {
+        var id = $(this).data('id');
+        var productItem = $(this).closest('.product-item');
+
+        if (confirm('Bạn có muốn xoá sản phẩm trong giỏ hàng?')) {
+            $.ajax({
+                url: 'api/cart/update-cart.php',
+                type: 'POST',
+                data: {
+                    action: 'delete',
+                    id: id
+                },
+                success: function (response) {
+                    // Remove the item from the UI
+                    productItem.remove();
+                    updateTotalPrice();
+                },
+                error: function () {
+                    // Handle error
+                    alert('Error deleting item.');
+                }
+            });
+        }
+    });
+    $(document).on('click', '.btn-increase, .btn-decrease', function () {
+        var input = $(this).siblings('.input-quantity');
+        var currentQuantity = parseInt(input.val());
+        var newQuantity = $(this).hasClass('btn-increase') ? currentQuantity + 1 : currentQuantity - 1;
+
+        if (newQuantity > 0) {
+            input.val(newQuantity).trigger('change');
+        }
+    });
+
+    $(document).on('change', '.input-quantity', function () {
+        var id = $(this).data('id');
+        var quantity = $(this).val();
+
+        $.ajax({
+            url: 'api/cart/update-cart.php',
+            type: 'POST',
+            data: {
+                action: 'change',
+                id: id,
+                quantity: quantity
+            },
+            success: function (response) {
+                // Handle success (e.g., update total price)
+                updateTotalPrice();
+            },
+            error: function () {
+                // Handle error
+                alert('Error updating quantity.');
+            }
+        });
     });
 </script>

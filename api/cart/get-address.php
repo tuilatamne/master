@@ -16,9 +16,10 @@ if ($f->isPOST()):
     $id = $filterAll['id'];
     ?>
     <?php
-    // Lấy danh sách quận, huyện
+    // Lấy danh sách quận,huyện
     if ($yeucau == 'huyen'):
         $danhsachhuyen = $db->getRaw("SELECT * FROM quanhuyen WHERE matp = '$id'"); ?>
+        <option value="">Chọn Quận/Huyện</option>
         <?php foreach ($danhsachhuyen as $huyen): ?>
             <option value="<?= $huyen['maqh'] ?>"><?= $huyen['name'] ?></option>
         <?php endforeach; ?>
@@ -28,6 +29,7 @@ if ($f->isPOST()):
     // Lấy danh sách phường, xã
     if ($yeucau == 'xa'):
         $danhsachxa = $db->getRaw("SELECT * FROM xaphuongthitran WHERE maqh = '$id'"); ?>
+        <option value="">Chọn Phường,Xã</option>
         <?php foreach ($danhsachxa as $xa): ?>
             <option value="<?= $xa['xaid'] ?>"><?= $xa['name'] ?></option>
         <?php endforeach; ?>
