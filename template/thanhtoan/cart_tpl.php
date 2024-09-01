@@ -1,5 +1,4 @@
 <?php
-// unset($_SESSION['cart']);
 $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
 ?>
 <section id="cart">
@@ -71,7 +70,7 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                 <div class="col-md-5 ps-md-4">
                     <p class="fs-4 fw-bold">Thông tin thanh toán</p>
                     <div class="row border rounded py-3 shadow-sm">
-                        <form action="" method="post" class="needs-validation" novalidate>
+                        <form action="api/order/submit.php" method="post" class="needs-validation" novalidate>
                             <div class="col-md-12 mb-3">
                                 <label for="fullname" class="form-label fw-bold">Họ và tên:</label>
                                 <input type="text" name="fullname" id="fullname" class="form-control" required>
@@ -81,7 +80,7 @@ $list_tinh = $db->getRaw('SELECT * FROM tinhthanhpho');
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="phone_number" class="form-label fw-bold">Số điện thoại:</label>
-                                <input type="text" name="phone_number" id="phone_number" class="form-control" required>
+                                <input type="number" name="phone_number" id="phone_number" class="form-control" required>
                                 <div class="invalid-feedback">
                                     Vui lòng nhập số điện thoại
                                 </div>

@@ -19,16 +19,28 @@ $url = rtrim($url, '/');
 $url = ltrim($url, '/');
 
 ob_start();
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['timkiem']))
+
+$get_status = false;
+if (isset($_GET['timkiem']))
 {
+    $get_status = true;
     $search_keyword = $_GET['timkiem'];
     $list_result = $db->getRaw("SELECT * FROM products WHERE title LIKE '%$search_keyword%'");
     $title = "Tìm kiếm: $search_keyword";
     $search_status = true;
     require_once TEMPLATE . 'product/product_list_tpl.php';
     $noidung = ob_get_clean();
-} else
+}
+if (isset($_GET['order_status']))
 {
+    $get_status = true;
+    $title = "Đặt hàng thành công";
+    require_once TEMPLATE . 'thanhtoan/status.php';
+    $noidung = ob_get_clean();
+}
+if (!$get_status)
+{
+
     switch ($url)
     {
         case '':
