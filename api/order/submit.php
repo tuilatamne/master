@@ -2,6 +2,7 @@
 session_start();
 
 require_once '../../config.php';
+require_once '../../source/session.php';
 require_once '../../source/database.php';
 require_once '../../source/function.php';
 
@@ -42,7 +43,7 @@ foreach ($_SESSION['cart'] as $item)
     }
 }
 // trả về trang chủ và thông báo đã đặt thành công
-$order_status = true;
+setFlashData('order_status', true);
 $f->redirect('../../?order_status=success');
 
 echo '<pre>';
