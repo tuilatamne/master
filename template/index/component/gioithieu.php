@@ -12,7 +12,7 @@ $gioithieu_image = $db->oneRaw("SELECT * FROM images WHERE type = 'gioi-thieu'")
             <div class="gioithieu-desc"><?= $gioithieu_desc ?></div>
             <div class="gioithieu-desc-bottom"><?= $gioithieu_desc_bottom ?></div>
             <div class="d-flex">
-                <a href="#" class="btn-timhieuthem">
+                <a href="gioi-thieu" class="btn-timhieuthem">
                     <span>TÌM HIỂU THÊM</span>
                     <img src="assets/images/page/arow.svg">
                 </a>
