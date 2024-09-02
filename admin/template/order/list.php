@@ -48,11 +48,11 @@ $smg = getFlashData('smg');
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="15%">Mã đơn hàng</th>
+                                <th width="10%" class="text-center">Mã đơn hàng</th>
                                 <th>Họ tên</th>
-                                <th>Ngày đặt</th>
-                                <th width="8%" class="text-center">Tổng giá</thư>
-                                <th width="8%" class="text-center">Tình trạng</th>
+                                <th width="150px" class="text-center">Ngày đặt</th>
+                                <th width="10%" class="text-center">Tổng giá</thư>
+                                <th width="15%" class="text-center">Tình trạng</th>
                                 <th width=" 10%" class="text-center">Thao tác</th>
                             </tr>
                         </thead>
@@ -61,16 +61,16 @@ $smg = getFlashData('smg');
                             foreach ($list_order as $item):
                                 ?>
                                 <tr>
-                                    <td></td>
+                                    <td class="text-center"><?= $item['code'] ?></td>
                                     <td>
                                         <a class="text-decoration-none fw-bold text-black"
                                             href="?com=order&act=edit&id=<?= $item['id'] ?>">
                                             <?= $item['fullname'] ?>
                                         </a>
                                     </td>
-                                    <td><?= $item['create_at'] ?></td>
-                                    <td class="fw-bold"><?= $func->format_tiente($item['total_price']) ?>đ</td>
-                                    <td class="fw-bold"><?= $func->status_order($item['status']) ?></td>
+                                    <td><?= date('d-m-Y H:i:s', strtotime($item['create_at'])) ?></td>
+                                    <td class="fw-bold text-end"><?= $func->format_tiente($item['total_price']) ?>đ</td>
+                                    <td class="fw-bold text-center"><?= $func->status_order($item['status']) ?></td>
                                     <td class="text-center">
                                         <a href="?com=order&act=edit&id=<?= $item['id'] ?>" class="btn btn-warning btn-sm">
                                             <i class="fa-solid fa-pen-to-square"></i>
