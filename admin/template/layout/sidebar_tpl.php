@@ -57,6 +57,13 @@
                         <p>Quản lý đơn hàng</p>
                     </a>
                 </li>
+                <li class="nav-header">Đăng ký nhận tin</li>
+                <li class="nav-item">
+                    <a href="?com=custommer&act=list" class="nav-link <?= $com == 'custommer' ? 'active' : '' ?>">
+                        <i class="nav-icon fa-solid fa-bag-shopping"></i>
+                        <p>Đăng ký nhận tin</p>
+                    </a>
+                </li>
                 <li class="nav-header">Bài viết không cấp</li>
                 <li class="nav-item <?= $com == 'new' ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link <?= $com == 'new' ? 'active' : '' ?>">

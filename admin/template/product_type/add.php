@@ -17,6 +17,7 @@ if ($func->isPOST())
     }
     $db->insert('product_types', $data_insert);
     setFlashData('smg', 'Thêm mục thành công');
+    $func->redirect('?com=product_type&act=list');
 }
 
 $smg = getFlashData('smg');
